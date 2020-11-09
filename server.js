@@ -3,6 +3,9 @@ const app = express();
 require("dotenv").config();
 const path = require("path");
 const fs = require("fs");
+const cors = require("cors");
+
+app.use(cors());
 
 const port = process.env.PORT || 5000;
 

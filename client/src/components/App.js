@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 function App() {
     const [videos, setVideos] = useState([]);
     useEffect(() => {
-        fetch("/videos")
+        fetch("http://localhost:5000/videos")
             .then((res) => {
                 return res.json();
             })
