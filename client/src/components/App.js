@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 function App() {
     const [videos, setVideos] = useState([]);
+    const [maxId, setMaxId] = useState(null);
     useEffect(() => {
         fetch("http://localhost:5000/videos")
             .then((res) => {
@@ -14,6 +15,7 @@ function App() {
             })
             .then((data) => {
                 setVideos(data.videos);
+                setMaxId(data.videos.length);
             });
     }, []);
     return (
@@ -25,7 +27,7 @@ function App() {
                 <ListVideos videos={videos} />
             </Route>
             <Route exact path="/play/:id">
-                <VideoPlayer />
+                <VideoPlayer maxId={maxId - 1} />
             </Route>
         </div>
     );
