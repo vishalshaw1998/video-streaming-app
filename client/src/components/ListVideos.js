@@ -1,5 +1,7 @@
 import VideoCard from "./VideoCard";
 import CardContainer from "./CardContainer";
+import Button from "../utils/Button";
+import { Link } from "react-router-dom";
 
 const ListVideos = ({ videos }) => {
     let arrayOfVideos = [];
@@ -29,14 +31,30 @@ const ListVideos = ({ videos }) => {
         videoCards.push(temp);
     }
     return (
-        <div>
-            <h1 style={{ textAlign: "center" }}>
-                Please Select from the list of Videos To Watch
-            </h1>
-            {videoCards.map((cards) => {
-                return <CardContainer>{cards}</CardContainer>;
-            })}
-        </div>
+        <>
+            <div style={{ display: "flex", marginTop: "20px" }}>
+                <div style={{ width: "20%" }}>
+                    <Link to="/">
+                        <Button btnStyle="btn_back">Go Back</Button>
+                    </Link>
+                </div>
+                <div
+                    style={{
+                        width: "80%",
+                        textAlign: "center",
+                        fontFamily: "Goldman",
+                        fontSize: "30px",
+                    }}
+                >
+                    Please Select The Video From List
+                </div>
+            </div>
+            <div>
+                {videoCards.map((cards) => {
+                    return <CardContainer>{cards}</CardContainer>;
+                })}
+            </div>
+        </>
     );
 };
 

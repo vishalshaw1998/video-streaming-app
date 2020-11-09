@@ -70,6 +70,7 @@ app.get("/api", (req, res) => {
 app.get("/video/:id", (req, res) => {
     const path = `assets/${req.params.id}.mp4`;
     const stat = fs.statSync(path);
+    console.log(stat);
     const fileSize = stat.size;
     const range = req.headers.range;
     if (range) {

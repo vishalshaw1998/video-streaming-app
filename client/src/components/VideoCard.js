@@ -10,8 +10,13 @@ const VideoCard = ({ id, poster, name, duration }) => {
                     alt="poster video"
                 />
             </Link>
-            <div>
-                <span>Title:- {name}</span>
+            <div className="content">
+                <div>
+                    <span className="title">{name}</span>
+                </div>
+                <div>
+                    <span>Duration:- {duration}</span>
+                </div>
             </div>
         </div>
     );

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import "../styles/VideoPlayer.css";
+import Button from "../utils/Button";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 const VideoPlayer = ({ maxId }) => {
     const [videoData, setVideoData] = useState(null);
@@ -29,12 +31,33 @@ const VideoPlayer = ({ maxId }) => {
                 </div>
             )}
             {!loading && (
-                <video controls muted autoPlay crossOrigin="anonymous">
-                    <source
-                        src={`http://localhost:5000/video/${id}`}
-                        type="video/mp4"
-                    ></source>
-                </video>
+                <div className="video_container">
+                    <div>
+                        <video
+                            className="videoPlayer"
+                            controls
+                            muted
+                            autoPlay
+                            crossOrigin="anonymous"
+                        >
+                            <source
+                                src={`http://localhost:5000/video/${id}`}
+                                type="video/mp4"
+                            ></source>
+                        </video>
+                    </div>
+                    <div className="video_details">
+                        <div className="current_name">{videoData.name}</div>
+                        <div>
+                            <Link to="/listVideo">
+                                <Button btnStyle="btn_back">Back</Button>
+                            </Link>
+                        </div>
+                        <div className="current_duration">
+                            {videoData.duration}
+                        </div>
+                    </div>
+                </div>
             )}
         </div>
     );

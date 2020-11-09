@@ -1,10 +1,25 @@
 .videocard {
     width: 30%;
-    height: 200px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
 }
 .videocard_image {
     width: 300px;
     height: 200px;
+}
+.content {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 800;
 }

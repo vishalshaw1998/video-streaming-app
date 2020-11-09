@@ -1,0 +1,22 @@
+.home_exploreButton {
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50px;
+    outline: none;
+    background-color: rgb(131, 237, 245);
+}
+.home_exploreButton:active {
+    transform: translateY(4px);
+}
+.btn_back {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    outline: none;
+    background-color: rgb(131, 237, 245);
+}
+.btn_back:active {
+    transform: translateY(4px);
+}

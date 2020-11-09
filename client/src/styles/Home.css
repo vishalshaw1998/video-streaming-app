@@ -11,12 +11,14 @@
     height: 600;
     border-radius: 60px;
 }
-.home_exploreButton {
-    width: 300px;
-    height: 50px;
-    cursor: pointer;
-    background-color: rgb(131, 237, 245);
-}
+
 .welcome_tag {
     font-size: 25px;
+}
+h1 {
+    font-family: "Goldman", cursive;
+}
+.img_container {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
