@@ -1,0 +1,22 @@
+.container_home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    height: 80vh;
+    align-items: center;
+}
+.home_img {
+    width: 700;
+    height: 600;
+    border-radius: 60px;
+}
+.home_exploreButton {
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgb(131, 237, 245);
+}
+.welcome_tag {
+    font-size: 25px;
+}

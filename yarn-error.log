@@ -1,0 +1,52 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Home\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js i -D concurrently
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\curl-7.70.0-win64-mingw\bin;C:\Program Files\PuTTY\;C:\ProgramData\chocolatey\bin;C:\Users\Home\AppData\Local\Android\Sdk\platform-tools;C:\Users\Home\AppData\Local\Android\Sdk\emulator;C:\Users\Home\AppData\Roaming\npm;C:\Users\Home\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\Home\AppData\Local\Programs\Python\Python38-32\;C:\Users\Home\AppData\Local\Microsoft\WindowsApps;C:\Users\Home\AppData\Roaming\npm;C:\Program Files\MongoDB\Server\4.2\bin;C:\Program Files\heroku\bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.17.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: E:\video-streaming-app\package.json: Unexpected token } in JSON at position 540
+      at JSON.parse (<anonymous>)
+      at C:\Users\Home\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Home\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Home\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "video-streaming-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "scripts": {
+  		"client": "cd client && yarn start",
+  		"server": "nodemon server.js",
+  		"dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+  		"start": "node server.js",
+  		"heroku-postbuild": "cd client && yarn && yarn run build"
+  	},
+  	"dependencies": {
+  		"dotenv": "^8.2.0",
+  		"express": "^4.17.1",
+  	},
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

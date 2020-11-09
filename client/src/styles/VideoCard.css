@@ -1,0 +1,9 @@
+.videocard {
+    width: 30%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.videocard_image {
+    height: 100%;
+}
