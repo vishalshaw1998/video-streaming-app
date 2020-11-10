@@ -9,7 +9,7 @@ function App() {
     const [videos, setVideos] = useState([]);
     const [maxId, setMaxId] = useState(null);
     useEffect(() => {
-        fetch("http://localhost:5000/videos")
+        fetch("/api/videos")
             .then((res) => {
                 return res.json();
             })

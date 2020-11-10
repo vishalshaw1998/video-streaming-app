@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 const URL =
     "mongodb+srv://vishal:vishal@cluster0.4ipdu.mongodb.net/moviesData?retryWrites=true&w=majority";
 
-app.get("/videos", async (req, res) => {
+app.get("/api/videos", async (req, res) => {
     try {
         let client = await mongodb.connect(URL);
         let db = client.db("moviesData");
@@ -37,7 +37,7 @@ app.use((req, res, next) => {
     }
 });
 
-app.get("/:id/data", async (req, res) => {
+app.get("/api/:id/data", async (req, res) => {
     try {
         let client = await mongodb.connect(URL);
         let db = client.db("moviesData");
@@ -52,7 +52,7 @@ app.get("/:id/data", async (req, res) => {
     }
 });
 
-app.get("/video/:id", (req, res) => {
+app.get("/api/video/:id", (req, res) => {
     const path = `assets/${req.params.id}.mp4`;
     const stat = fs.statSync(path);
     const fileSize = stat.size;

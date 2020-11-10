@@ -11,7 +11,7 @@ const VideoPlayer = ({ maxId }) => {
     const isCorrectUrl = id > maxId || id < 0 ? false : true;
     useEffect(() => {
         if (isCorrectUrl) {
-            fetch(`http://localhost:5000/${id}/data`)
+            fetch(`/api/${id}/data`)
                 .then((res) => {
                     return res.json();
                 })
@@ -27,7 +27,7 @@ const VideoPlayer = ({ maxId }) => {
         <div>
             {loading && (
                 <div>
-                    <h1>Please Wait</h1>
+                    <h1 style={{ textAlign: "center" }}>Please Wait</h1>
                 </div>
             )}
             {!loading && (
@@ -41,7 +41,7 @@ const VideoPlayer = ({ maxId }) => {
                             crossOrigin="anonymous"
                         >
                             <source
-                                src={`http://localhost:5000/video/${id}`}
+                                src={`/api/video/${id}`}
                                 type="video/mp4"
                             ></source>
                         </video>
