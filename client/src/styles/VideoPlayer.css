@@ -11,3 +11,11 @@
     display: flex;
     justify-content: space-evenly;
 }
+.current_name {
+    font-size: 20px;
+    font-family: "Oswald", sans-serif;
+}
+.current_duration {
+    font-size: 20px;
+    font-family: "Oswald", sans-serif;
+}

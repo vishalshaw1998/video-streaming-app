@@ -13,30 +13,30 @@ const videos = [
     {
         id: 0,
         poster:
-            "https://images-na.ssl-images-amazon.com/images/I/71jzMH-kHQL._AC_SL1000_.jpg",
-        duration: "3 mins",
-        name: "Sample 1",
+            "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/wonder-woman-1984.jpg",
+        duration: "2 mins",
+        name: "Wonder Woman 1984",
     },
     {
         id: 1,
         poster:
-            "https://www.dccomics.com/sites/default/files/imce/2019/03-MAR/Gotham_S5_1sheet_Finale_F8_lores_5c9d4a749a98c0.81653480.jpg",
-        duration: "4 mins",
-        name: "Sample 2",
+            "https://images-na.ssl-images-amazon.com/images/I/71XL0VLqdtL._AC_SL1500_.jpg",
+        duration: "2 mins",
+        name: "The Dark Knight",
     },
     {
         id: 2,
         poster:
-            "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9bf4c176295697.5c65456462366.jpg",
+            "https://i.pinimg.com/originals/64/23/c5/6423c599a024c1e2e008bcba17009d81.jpg",
         duration: "2 mins",
-        name: "Sample 3",
+        name: "The Amazing Spider-man",
     },
     {
         id: 3,
         poster:
-            "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9bf4c176295697.5c65456462366.jpg",
-        duration: "2 mins",
-        name: "Sample 4",
+            "https://images-na.ssl-images-amazon.com/images/I/71j%2BjX%2BnBBL._AC_SL1200_.jpg",
+        duration: "3 mins",
+        name: "Man Of Steel",
     },
 ];
 
@@ -61,16 +61,9 @@ app.get("/:id/data", (req, res) => {
     });
 });
 
-app.get("/api", (req, res) => {
-    res.json({
-        status: "ok",
-    });
-});
-
 app.get("/video/:id", (req, res) => {
     const path = `assets/${req.params.id}.mp4`;
     const stat = fs.statSync(path);
-    console.log(stat);
     const fileSize = stat.size;
     const range = req.headers.range;
     if (range) {

@@ -11,6 +11,7 @@
 .videocard_image {
     width: 300px;
     height: 200px;
+    object-fit: contain;
 }
 .content {
     margin-top: 10px;

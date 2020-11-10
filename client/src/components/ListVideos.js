@@ -7,7 +7,7 @@ const ListVideos = ({ videos }) => {
     let arrayOfVideos = [];
     let threeMoviesArr = [];
     for (let i = 0; i < videos.length; i++) {
-        if (i % 2 == 0 && i !== 0) {
+        if (i % 2 === 0 && i !== 0) {
             threeMoviesArr.push(videos[i]);
             arrayOfVideos.push([...threeMoviesArr]);
             threeMoviesArr = [];
