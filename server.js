@@ -3,47 +3,29 @@ const app = express();
 require("dotenv").config();
 const path = require("path");
 const fs = require("fs");
+const mongodb = require("mongodb");
 const cors = require("cors");
 
 app.use(cors());
 
 const port = process.env.PORT || 5000;
 
-const videos = [
-    {
-        id: 0,
-        poster:
-            "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/wonder-woman-1984.jpg",
-        duration: "2 mins",
-        name: "Wonder Woman 1984",
-    },
-    {
-        id: 1,
-        poster:
-            "https://images-na.ssl-images-amazon.com/images/I/71XL0VLqdtL._AC_SL1500_.jpg",
-        duration: "2 mins",
-        name: "The Dark Knight",
-    },
-    {
-        id: 2,
-        poster:
-            "https://i.pinimg.com/originals/64/23/c5/6423c599a024c1e2e008bcba17009d81.jpg",
-        duration: "2 mins",
-        name: "The Amazing Spider-man",
-    },
-    {
-        id: 3,
-        poster:
-            "https://images-na.ssl-images-amazon.com/images/I/71j%2BjX%2BnBBL._AC_SL1200_.jpg",
-        duration: "3 mins",
-        name: "Man Of Steel",
-    },
-];
+const URL =
+    "mongodb+srv://vishal:vishal@cluster0.4ipdu.mongodb.net/moviesData?retryWrites=true&w=majority";
 
-app.get("/videos", (req, res) => {
-    res.json({
-        videos,
-    });
+app.get("/videos", async (req, res) => {
+    try {
+        let client = await mongodb.connect(URL);
+        let db = client.db("moviesData");
+        let data = await db.collection("movies").find().toArray();
+        lengthData = data.length;
+        res.json({
+            lengthData,
+            data,
+        });
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 app.use((req, res, next) => {
@@ -55,10 +37,19 @@ app.use((req, res, next) => {
     }
 });
 
-app.get("/:id/data", (req, res) => {
-    res.json({
-        videoData: videos[req.params.id],
-    });
+app.get("/:id/data", async (req, res) => {
+    try {
+        let client = await mongodb.connect(URL);
+        let db = client.db("moviesData");
+        let data = await db
+            .collection("movies")
+            .findOne({ _id: parseInt(req.params.id) });
+        res.json({
+            videoData: data,
+        });
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 app.get("/video/:id", (req, res) => {

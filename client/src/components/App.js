@@ -14,8 +14,8 @@ function App() {
                 return res.json();
             })
             .then((data) => {
-                setVideos(data.videos);
-                setMaxId(data.videos.length);
+                setVideos(data.data);
+                setMaxId(data.lengthData);
             });
     }, []);
     return (

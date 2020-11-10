@@ -18,10 +18,11 @@ const ListVideos = ({ videos }) => {
     arrayOfVideos.push(threeMoviesArr);
     let videoCards = [];
     for (let i = 0; i < arrayOfVideos.length; i++) {
-        const temp = arrayOfVideos[i].map(({ id, duration, name, poster }) => {
+        const temp = arrayOfVideos[i].map(({ _id, duration, name, poster }) => {
             return (
                 <VideoCard
-                    id={id}
+                    key={_id}
+                    id={_id}
                     duration={duration}
                     name={name}
                     poster={poster}
@@ -50,8 +51,8 @@ const ListVideos = ({ videos }) => {
                 </div>
             </div>
             <div>
-                {videoCards.map((cards) => {
-                    return <CardContainer>{cards}</CardContainer>;
+                {videoCards.map((cards, idx) => {
+                    return <CardContainer key={idx}>{cards}</CardContainer>;
                 })}
             </div>
         </>
